@@ -1,5 +1,6 @@
 import Card from "./Card"
 import Button from "./Button"
+import Spacer from "./Spacer"
 
 const TaskCard = () => {
     return (
@@ -9,7 +10,9 @@ const TaskCard = () => {
           <h4>TODO: Task Title</h4>
           <p>TODO: Task Description</p>
           <p>TODO: View Due Date</p>
+          <p>TODO: Learning Content?</p>
           <Button>TODO: Edit Changes</Button>
+          <Spacer marginY="10px" />
         </Card>
     )
 }

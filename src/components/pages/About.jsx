@@ -7,9 +7,9 @@ const About = () => {
             <h2>About Home Cycle</h2>
             <p>TODO: Write copy for about</p>
             <br />
-            <Input />
-            <Input />
-            <Input />
+            <Input>TODO: Name</Input>
+            <Input>TODO: Email</Input>
+            <Input>TODO: Feedback</Input>
             <Button id="submit-feedback" type="submit" label="Submit" handleClick="TBD" classes="submit button feedback"/>
         </div>
     )

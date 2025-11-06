@@ -1,9 +1,18 @@
+import TaskCard from "../common/TaskCard";
+
 const TasksSection = () => {
     
-    const tasksJSX = [];
+    const tasksJSX = [].map((task) => {
+        return(
+            <TaskCard id={task.id} />
+        )
+    });
     
     return (
-        console.log(tasksJSX)
+        <main>
+            <h2>Dashboard</h2>
+        <div className="tasks-section">{tasksJSX}</div>
+        </main>
     )
 }
 
