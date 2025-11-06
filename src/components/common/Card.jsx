@@ -1,6 +1,6 @@
-const Card = () => {
+const Card = ({ viewType, children }) => {
     return (
-        console.log("Card")
+        <div className={`card ${viewType}`}>{children}</div>
     )
 }
 

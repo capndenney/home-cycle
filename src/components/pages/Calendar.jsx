@@ -1,6 +1,8 @@
+import { DayPicker } from "react-day-picker";
+
 const Calendar = () => {
     return (
-        console.log("Calendar")
+        <DayPicker />
     )
 }
 
