@@ -1,6 +1,6 @@
-const Spacer = () => {
+const Spacer = ({ marginX, marginY, character }) => {
     return (
-        console.log("Spacer")
+        <div style={{ margin: `${marginX || 0} ${marginY || 0}` }}>{character || ''}</div>
     )
 }
 
