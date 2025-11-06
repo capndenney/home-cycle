@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        console.log("Home")
+        console.log("home")
     )
 }
 

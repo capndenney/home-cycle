@@ -1,3 +1,14 @@
+# Dev Notes
+
+## Libraries to review for Date selection
+react-datepicker
+react-day-picker
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
