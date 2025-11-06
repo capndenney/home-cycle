@@ -3,7 +3,7 @@ const TasksSection = () => {
     const tasksJSX = [];
     
     return (
-        console.log("TasksSection")
+        console.log(tasksJSX)
     )
 }
 
