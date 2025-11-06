@@ -1,7 +1,15 @@
-const Header = () => {
-    return (
-        console.log("header")
-    )
-}
+import Nav from "./Nav";
 
-export default Header
+const Header = () => {
+
+  //TODO: Need Logo Icon
+
+  return (
+    <header>
+      <h1>Home Cycle</h1>
+      <Nav />
+    </header>
+  );
+};
+
+export default Header;

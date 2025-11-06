@@ -1,4 +1,4 @@
-const Input = ({ id, label, type, value, red, required, handleChange}) => {
+const Input = ({ id, label, type, value, ref, required, handleChange}) => {
     return(
         <>
             <label htmlFor={id}>
