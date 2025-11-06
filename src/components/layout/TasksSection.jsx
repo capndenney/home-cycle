@@ -1,10 +1,11 @@
 import TaskCard from "../common/TaskCard";
+import sampleTasks from "../../sampleData/sampleTasks";
 
 const TasksSection = () => {
     
-    const tasksJSX = [].map((task) => {
+    const tasksJSX = [...sampleTasks].map((task) => {
         return(
-            <TaskCard id={task.id} />
+            <TaskCard key={`task-${task.id}`} id={task.id} title={task.title} description={task.description} dueDate={task.dueDate}/>
         )
     });
     

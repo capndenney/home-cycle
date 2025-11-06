@@ -5,7 +5,7 @@ import { DayPicker } from "react-day-picker"
 
 const EditTask = () => {
     return (
-        <Card>
+        <Card viewType="edit">
           <h3>TODO: Prop for Task Name</h3>
           <p>TODO: Load Task Number</p>
           <Input>TODO: Task Title</Input>

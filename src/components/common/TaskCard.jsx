@@ -2,14 +2,13 @@ import Card from "./Card"
 import Button from "./Button"
 import Spacer from "./Spacer"
 
-const TaskCard = () => {
+const TaskCard = ({ title, id, description, dueDate }) => {
     return (
-        <Card>
-          <h3>TODO: Prop for Task Name</h3>
-          <p>TODO: Load Task Number</p>
-          <h4>TODO: Task Title</h4>
-          <p>TODO: Task Description</p>
-          <p>TODO: View Due Date</p>
+        <Card viewType="view">
+          <h3>{title}</h3>
+          <p>{id}</p>
+          <p>{description}</p>
+          <p>{dueDate}</p>
           <p>TODO: Learning Content?</p>
           <Button>TODO: Edit Changes</Button>
           <Spacer marginY="10px" />
