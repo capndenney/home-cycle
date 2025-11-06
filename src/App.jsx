@@ -20,9 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/:user/calendar" element={<Calendar />} />
-            <Route path="/:user/task/:id" element={<TaskCard />} />
-            <Route path="/:user/newtask" element={<EditTask />} />
+            <Route path="/calendar" element={<Calendar />} />
+            <Route path="/task/:id" element={<TaskCard />} />
+            <Route path="/newtask" element={<EditTask />} />
             <Route path="*" element={<Home />} />
           </Routes>
         )}

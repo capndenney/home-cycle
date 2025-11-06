@@ -1,6 +1,8 @@
+import TasksSection from "../layout/TasksSection"
+
 const Home = () => {
     return (
-        console.log("home")
+        <TasksSection />
     )
 }
 
