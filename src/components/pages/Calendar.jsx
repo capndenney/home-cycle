@@ -2,7 +2,7 @@ import { DayPicker } from "react-day-picker";
 
 const Calendar = () => {
     return (
-        <DayPicker />
+        <DayPicker>TODO: Load Calendar with tasks</DayPicker>
     )
 }
 
