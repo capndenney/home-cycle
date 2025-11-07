@@ -1,0 +1,39 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+main {
+    background-color: aquamarine;
+}
+
+.tasks-section {
+    display: grid;
+    grid-template-columns: 1fr minmax(300px 1fr);
+    padding: 15px;
+}
+
+
+@media screen and (min-width: 480px) {
+    
+}
+
+@media screen and (min-width: 600px) {
+    .tasks-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .tasks-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
