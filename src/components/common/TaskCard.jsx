@@ -1,6 +1,5 @@
 import Card from "./Card"
 import Button from "./Button"
-import Spacer from "./Spacer"
 
 const TaskCard = ({ title, id, description, dueDate }) => {
     return (
@@ -10,8 +9,7 @@ const TaskCard = ({ title, id, description, dueDate }) => {
           <p>{description}</p>
           <p>{dueDate}</p>
           <p>TODO: Learning Content?</p>
-          <Button>TODO: Edit Changes</Button>
-          <Spacer marginY="10px" />
+          <Button id={`task-${id}`}>TODO: Edit Changes</Button>
         </Card>
     )
 }
