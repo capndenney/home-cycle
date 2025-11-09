@@ -1,14 +1,23 @@
 header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: stretch;
 }
 
-nav {
+.link {
+    margin: 5px;
+}
+
+.header > :nth-child(1) {
+    margin-right: auto;
+}
+
+.nav-menu {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: flex-start;
+    align-self: flex-end;
+    margin-right: 10px;
 }
 
 main {
