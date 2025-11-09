@@ -13,7 +13,6 @@ const TasksSection = () => {
           description={task.description}
           dueDate={task.dueDate}
         />
-        <Spacer marginY="10px" />
       </>
     );
   });

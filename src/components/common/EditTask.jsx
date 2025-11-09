@@ -12,8 +12,8 @@ const EditTask = () => {
           <Input>TODO: Task Description</Input>
           <Input>TODO: Completed Checkbox</Input>
           <DayPicker>TODO: Load Saved Date</DayPicker>
-          <Button>TODO: Save Changes</Button>
-          <Button>TODO: Cancel Changes</Button>
+          <Button label="Save">TODO: Save Changes</Button>
+          <Button label="Cancel">TODO: Cancel Changes</Button>
         </Card>
     )
 }

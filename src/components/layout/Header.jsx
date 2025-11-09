@@ -5,7 +5,7 @@ const Header = () => {
   //TODO: Need Logo Icon
 
   return (
-    <header>
+    <header className="header">
       <h1 className="app-title">Home Cycle</h1>
       <Nav />
     </header>
