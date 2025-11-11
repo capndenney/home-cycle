@@ -30,6 +30,14 @@ header {
 
 .feedback-form {
     background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    padding: 15px;
+}
+
+.feedback {
+    max-width: 60px;
 }
 
 button {
