@@ -7,16 +7,17 @@ import TaskCard from "./components/common/TaskCard.jsx";
 import EditTask from "./components/common/EditTask.jsx";
 import Calendar from "./components/pages/Calendar.jsx";
 import { useState } from "react";
-import "./App.css";
+import "./Index.css";
+import LogIn from "./components/pages/LogIn.jsx";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(true); //TODO: UseState for log in status
+  const [logInStatus, setLogInStatus] = useState(false); //TODO: UseState for log in status
 
   return (
     <div>
       <Router>
       <Header />
-        {logInStatus && (
+        {logInStatus ? (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -25,9 +26,10 @@ function App() {
             <Route path="/newtask" element={<EditTask />} />
             <Route path="*" element={<Home />} />
           </Routes>
-        )}
-        {!logInStatus && (
+        ) : (
           <Routes>
+            <Route path="/" element={<LogIn />} />
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<LogIn />} />
           </Routes>
         )}

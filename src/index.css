@@ -1,0 +1,70 @@
+p {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+.link {
+    margin: 5px;
+}
+
+.header > :nth-child(1) {
+    margin-right: auto;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin-right: 10px;
+}
+
+.feedback-form {
+    background-color: aquamarine;
+}
+
+button {
+    padding: 5px;
+    margin: 5px;
+}
+
+main {
+    background-color: aquamarine;
+}
+
+.tasks-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 15px;
+}
+
+.add-blur {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+
+@media screen and (min-width: 330px) {
+
+}
+
+@media screen and (min-width: 600px) {
+    .tasks-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .tasks-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

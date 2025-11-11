@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import logo from "../../assets/home-cycle-logo-test.PNG"
 
 const Header = () => {
 
@@ -6,6 +7,7 @@ const Header = () => {
 
   return (
     <header className="header">
+      <img src={logo} alt="Home Cycle Logo" />
       <h1 className="app-title">Home Cycle</h1>
       <Nav />
     </header>

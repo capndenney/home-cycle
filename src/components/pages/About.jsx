@@ -11,10 +11,13 @@ The Yellow-throated Toucan (Ramphastos ambiguus), also known as the Black-mandib
 <br />
 These magnificent birds are primarily frugivores, with their diet consisting mainly of a wide variety of tropical fruits, which they often pluck from branches using the very tip of their bill. However, they are opportunistic feeders and will also consume insects, small reptiles, and the eggs or nestlings of other birds. Yellow-throated Toucans are social animals, typically moving through the canopy in small, noisy flocks or pairs, communicating through a loud, croaking call that can carry long distances through the dense forest. They nest in natural tree cavities, often those previously excavated by woodpeckers. Due to habitat loss from deforestation, the Yellow-throated Toucan is a species of conservation concern, highlighting the importance of protecting the vibrant tropical ecosystems it inhabits.</p>
             <br />
-            <Input>TODO: Name</Input>
+            <div className="feedback-form">
+                <h3>Contact Us</h3>
+            <Input id="name" value='TODO: Name' label="Name:" required:true />
             <Input>TODO: Email</Input>
             <Input>TODO: Feedback</Input>
             <Button id="submit-feedback" type="submit" label="Submit" handleClick="TBD" classes="submit button feedback"/>
+            </div>
         </div>
     )
 }
