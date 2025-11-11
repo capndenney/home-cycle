@@ -16,7 +16,7 @@ header {
     margin: 5px;
 }
 
-.header > :nth-child(1) {
+.header > :nth-child(2) {
     margin-right: auto;
 }
 
@@ -52,6 +52,10 @@ main {
     backdrop-filter: blur(8px);
 }
 
+#logo {
+    max-height: 70px;
+    padding: 10px;
+}
 
 @media screen and (min-width: 330px) {
 
