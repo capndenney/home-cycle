@@ -1,12 +1,14 @@
 import Nav from "./Nav";
+import logo from "../../assets/home-cycle-logo-test.PNG";
 
 const Header = () => {
 
-  //TODO: Need Logo Icon
-
   return (
     <header className="header">
-      <h1 className="app-title">Home Cycle</h1>
+      <div id="branding">
+        <img id="logo" src={logo} alt="Home Cycle Logo" />
+        <h1 className="app-title">Home<br/>Cycle</h1>
+      </div>
       <Nav />
     </header>
   );

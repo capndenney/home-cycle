@@ -8,9 +8,9 @@ const EditTask = () => {
         <Card viewType="edit add-blur">
           <h3>TODO: Prop for Task Name</h3>
           <p>TODO: Load Task Number</p>
-          <Input>TODO: Task Title</Input>
-          <Input>TODO: Task Description</Input>
-          <Input>TODO: Completed Checkbox</Input>
+          <Input label="TODO: Task Title"/>
+          <Input label="TODO: Task Description"/>
+          <Input label="TODO: Completed Checkbox"/>
           <DayPicker>TODO: Load Saved Date</DayPicker>
           <Button label="Save">TODO: Save Changes</Button>
           <Button label="Cancel">TODO: Cancel Changes</Button>
