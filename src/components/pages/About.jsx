@@ -13,9 +13,9 @@ These magnificent birds are primarily frugivores, with their diet consisting mai
             <br />
             <div className="feedback-form">
                 <h3>Contact Us</h3>
-            <Input id="name" value='TODO: Name' label="Name:" required:true />
-            <Input id="email" value="TODO: Email" label="Email:" required:true />
-            <Input id="feedback" value="TODO: Feedback" label="Feedback" required:true />
+            <Input id="name" value='TODO: Name' label="Name:" required='true' />
+            <Input id="email" value="TODO: Email" label="Email:" required='true' />
+            <Input id="feedback" value="TODO: Feedback" label="Feedback:" required='true' />
             <Button id="submit-feedback" type="submit" label="Submit" handleClick="TBD" classes="submit button feedback"/>
             </div>
         </div>

@@ -1,14 +1,13 @@
 import TaskCard from "../common/TaskCard";
-import Spacer from "../common/Spacer";
-import sampleTasks from "../../sampleData/sampleTasks";
+import sampleTasks from "../../sampleData/sampleTasks.js";
 
 const TasksSection = () => {
   const tasksJSX = [...sampleTasks].map((task) => {
     return (
       <>
         <TaskCard
-          key={`task-${task.id}`}
-          id={task.id}
+          key={task.id}
+          id={`task-${task.id}`}
           title={task.title}
           description={task.description}
           dueDate={task.dueDate}
@@ -19,7 +18,7 @@ const TasksSection = () => {
 
   return (
     <main className="dashboard">
-      <h2>Dashboard</h2>
+      <h2 id="dashboard-heading">Dashboard</h2>
       <div className="tasks-section">{tasksJSX}</div>
     </main>
   );

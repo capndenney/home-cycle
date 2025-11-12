@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import Home from "./components/pages/Home";
-import About from "./components/pages/About";
+import Header from "./components/layout/Header.jsx";
+import Footer from "./components/layout/Footer.jsx";
+import Home from "./components/pages/Home.jsx";
+import About from "./components/pages/About.jsx";
 import TaskCard from "./components/common/TaskCard.jsx";
 import EditTask from "./components/common/EditTask.jsx";
 import Calendar from "./components/pages/Calendar.jsx";
@@ -11,11 +11,11 @@ import "./Index.css";
 import LogIn from "./components/pages/LogIn.jsx";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(false); //TODO: UseState for log in status
+  const [logInStatus, setLogInStatus] = useState(true); //TODO: UseState for log in status
 
   return (
-    <div>
-      <Router>
+    <>
+      <Router id="main-content">
       <Header />
         {logInStatus ? (
           <Routes>
@@ -35,7 +35,7 @@ function App() {
         )}
       <Footer />
       </Router>
-    </div>
+    </>
   );
 }
 
