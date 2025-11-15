@@ -8,6 +8,7 @@ import EditTask from "./components/common/EditTask.jsx";
 import Calendar from "./components/pages/Calendar.jsx";
 import { useState } from "react";
 import "./Index.css";
+import "react-day-picker/style.css";
 import LogIn from "./components/pages/LogIn.jsx";
 
 function App() {
