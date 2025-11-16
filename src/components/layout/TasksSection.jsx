@@ -11,6 +11,7 @@ const TasksSection = () => {
           title={task.title}
           description={task.description}
           dueDate={task.dueDate}
+          completed={task.completed}
         />
       </>
     );

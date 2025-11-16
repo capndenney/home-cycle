@@ -20,6 +20,7 @@ const ViewTask = () => {
       title={foundTask.title}
       description={foundTask.description}
       dueDate={foundTask.dueDate}
+      completed={foundTask.completed}
     />
   );
 };
