@@ -1,17 +1,7 @@
 import Card from "./Card";
 import Button from "./Button";
-import { useParams } from "react-router";
-import { useState, useEffect } from "react";
-import sampleTasks from "../../sampleData/sampleTasks";
 
-const TaskCard = ( ) => {
-  const { id } = useParams();
-  const [task, setTask] = useState(null);
-
-  useEffect(() => {
-    const foundTask = sampleTasks.find((t) => t.taskId === Number(id));
-    setTask(foundTask);
-  }, [id]);
+const TaskCard = ( task ) => {
 
     return (
       <Card viewType="view" key={`task-${task.taskId}`}>

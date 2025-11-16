@@ -3,7 +3,7 @@ import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Home from "./components/pages/Home.jsx";
 import About from "./components/pages/About.jsx";
-import TaskCard from "./components/common/TaskCard.jsx";
+import ViewTask from "./components/pages/ViewTask.jsx";
 import EditTask from "./components/common/EditTask.jsx";
 import Calendar from "./components/pages/Calendar.jsx";
 import { useState } from "react";
@@ -13,7 +13,7 @@ import LogIn from "./components/pages/LogIn.jsx";
 
 function App() {
 
-  const [logInStatus, setLogInStatus] = useState(false); //TODO: UseState for log in status
+  const [logInStatus, setLogInStatus] = useState(true); 
 
   return (
     <>
@@ -24,7 +24,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/calendar" element={<Calendar />} />
-            <Route path="/task/:id" element={<TaskCard />} />
+            <Route path="/task/:id" element={<ViewTask />} />
             <Route path="/newtask" element={<EditTask />} />
             <Route path="*" element={<Home />} />
           </Routes>

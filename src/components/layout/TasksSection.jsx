@@ -1,4 +1,4 @@
-import TaskCard from "../common/TaskCard";
+import TaskCard from "../common/TaskCard.JSX";
 import sampleTasks from "../../sampleData/sampleTasks.js";
 
 const TasksSection = () => {
