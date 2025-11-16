@@ -25,6 +25,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/task/:id" element={<ViewTask />} />
+            <Route path="/task/:id/edit" element={<EditTask />} />
             <Route path="/newtask" element={<EditTask />} />
             <Route path="*" element={<Home />} />
           </Routes>
