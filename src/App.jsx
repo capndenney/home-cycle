@@ -12,12 +12,13 @@ import "react-day-picker/style.css";
 import LogIn from "./components/pages/LogIn.jsx";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(true); //TODO: UseState for log in status
+
+  const [logInStatus, setLogInStatus] = useState(false); //TODO: UseState for log in status
 
   return (
     <>
       <Router id="main-content">
-      <Header />
+      <Header logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>
         {logInStatus ? (
           <Routes>
             <Route path="/" element={<Home />} />
@@ -29,9 +30,9 @@ function App() {
           </Routes>
         ) : (
           <Routes>
-            <Route path="/" element={<LogIn />} />
+            <Route path="/" element={<LogIn logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>} />
             <Route path="/about" element={<About />} />
-            <Route path="*" element={<LogIn />} />
+            <Route path="*" element={<LogIn setLogInStatus={setLogInStatus}/>} />
           </Routes>
         )}
       <Footer />
