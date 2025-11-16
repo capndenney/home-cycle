@@ -13,9 +13,8 @@ const TaskCard = ( ) => {
     setTask(foundTask);
   }, [id]);
 
-  if (task) {
     return (
-      <Card viewType="view">
+      <Card viewType="view" key={`task-${task.taskId}`}>
         <h3>{task.title}</h3>
         <p>{task.taskId}</p>
         <p>{task.description}</p>
@@ -24,9 +23,6 @@ const TaskCard = ( ) => {
         <Button id={`task-${task.taskId}`} label="Edit" />
       </Card>
     );
-  } else {
-    return <h3>Task not Found!</h3>;
-    }
 };
 
 export default TaskCard;

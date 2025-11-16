@@ -1,7 +1,23 @@
 import Input from "../common/Input"
 import Button from "../common/Button"
+import { useState } from "react"
+import sampleFeedback from "../../sampleData/sampleFeedback"
 
 const About = () => {
+    const initialFeedback = {name: '', email: '', feedback:''}
+    const [inputData, setInputData] = useState(initialFeedback)
+    const [submitted, setSubmitted] = useState(sampleFeedback)
+    
+    const handleChange = (e) => {
+        const {id, value} = e.target;
+        setInputData(oldData => ({...oldData, [id]: value }))}
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted([...submitted, inputData])
+        setInputData(initialFeedback)
+    }
+
     return (
         <div id="about-page">
             <h2>About Home Cycle</h2>
@@ -13,10 +29,10 @@ These magnificent birds are primarily frugivores, with their diet consisting mai
             <br />
             <div className="feedback-form">
                 <h3>Contact Us</h3>
-            <Input id="name" value='TODO: Name' label="Name:" required='true' />
-            <Input id="email" value="TODO: Email" label="Email:" required='true' />
-            <Input id="feedback" value="TODO: Feedback" label="Feedback:" required='true' />
-            <Button id="submit-feedback" type="submit" label="Submit" handleClick="TBD" classes="submit button feedback"/>
+            <Input id="name" value={inputData.name} label="Name:" required='true' handleChange={handleChange} />
+            <Input id="email" value={inputData.email} label="Email:" required='true' handleChange={handleChange} />
+            <Input id="feedback" value={inputData.feedback} label="Feedback:" required='true' handleChange={handleChange} />
+            <Button id="submit-feedback" type="submit" label="Submit" handleClick={handleSubmit} classes="submit button feedback"/>
             </div>
         </div>
     )
