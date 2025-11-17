@@ -6,8 +6,8 @@ const TasksSection = () => {
     return (
       <>
         <TaskCard
-          key={task.id}
-          id={`task-${task.id}`}
+          key={task.taskId}
+          taskId={`${task.taskId}`}
           title={task.title}
           description={task.description}
           dueDate={task.dueDate}
