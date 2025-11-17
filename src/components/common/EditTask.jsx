@@ -4,9 +4,7 @@ import Button from "./Button";
 import { DayPicker } from "react-day-picker";
 import { useState } from "react";
 import sampleTasks from "../../sampleData/sampleTasks";
-import { useParams } from "react-router";
-
-// TODO: Load task as new task or edit existing task page
+import { useParams, useNavigate } from "react-router";
 
 const EditTask = () => {
   const {id} = useParams()
@@ -62,10 +60,12 @@ const EditTask = () => {
     setCompData(e.target.checked);
   };
 
+  const navigate = useNavigate()
   const handleSave = (e) => {
     e.preventDefault();
     //TODO: Save Logic
     //TODO: Link to view task page for that taskId
+    navigate(`/task/${taskNum}`)
   };
 
   const handleCancel = (e) => {
