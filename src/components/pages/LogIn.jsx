@@ -3,7 +3,7 @@ import Input from "../common/Input";
 import { useState } from "react";
 import sampleUsers from "../../sampleData/sampleUsers";
 
-const LogIn = ({ logInStatus, setLogInStatus }) => {
+const LogIn = ({ setLogInStatus }) => {
   const credentialFormat = { username: "", password: "" };
   const [creds, setCreds] = useState(credentialFormat);
 

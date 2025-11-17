@@ -15,8 +15,8 @@ const ViewTask = () => {
 
   return (
     <TaskCard
-      key={foundTask.id}
-      id={`task-${foundTask.id}`}
+      key={foundTask.taskId}
+      id={`task-${foundTask.taskId}`}
       title={foundTask.title}
       description={foundTask.description}
       dueDate={foundTask.dueDate}
