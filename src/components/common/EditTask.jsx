@@ -6,7 +6,7 @@ import { useState } from "react";
 import sampleTasks from "../../sampleData/sampleTasks";
 import { useParams, useNavigate } from "react-router";
 
-const EditTask = () => {
+const EditTask = ({saveTask}) => {
   const {id} = useParams()
   const taskNum = Number(id)
   const loadTask = sampleTasks.find(t => t.taskId === taskNum)
@@ -19,12 +19,14 @@ const EditTask = () => {
   const getInitialTaskData = () => {
     if (loadTask) {
 
+        const loadedDate = new Date(loadTask.dueDate)
+
       return {
         title: loadTask.title || "",
         taskId: loadTask.taskId,
         description: loadTask.description || "",
         completed: loadTask.completed || false,
-        dueDate: loadTask.dueDate || null,
+        dueDate: loadedDate || null,
       };
     } else {
       return {
@@ -53,10 +55,6 @@ const EditTask = () => {
     setDescData(e.target.value);
   };
 
-  const handleDateChange = (e) => {
-    setDueData(e.target.date);
-  };
-
   const handleCheck = (e) => {
     setCompData(e.target.checked);
   };
@@ -64,8 +62,8 @@ const EditTask = () => {
   const navigate = useNavigate()
   const handleSave = (e) => {
     e.preventDefault();
-    //TODO: Save Logic
-    navigate(`/task/${taskNum}`)
+    saveTask
+    navigate(`/task/${initialTaskData.taskId}`)
   };
 
   const handleCancel = (e) => {
@@ -99,7 +97,7 @@ const EditTask = () => {
         handleChange={handleCheck}
       />
       <h4>Due Date:</h4>
-      <DayPicker mode="single" selected={dueData} onSelect={setDueData} footer={dueData ? `Due Date: ${dueData}` : `Please Select a Due Date`}>
+      <DayPicker mode="single" selected={dueData} onSelect={setDueData} footer={dueData ? `Due Date: ${dueData.toLocaleDateString()}` : `Please Select a Due Date`}>
         TODO: Load Saved Date
       </DayPicker>
       <Button label="Save" handleClick={handleSave}>

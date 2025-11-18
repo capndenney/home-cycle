@@ -7,9 +7,12 @@ const TaskCard = ( task ) => {
 
   const { id } = useParams()
   const loadedId = (id ? id : task.taskId)
+  const loadedDate = new Date(task.dueDate)
+  const formattedDate = loadedDate.toLocaleDateString()
   const [completeStatus,setCompleteStatus] = useState(task.completed)
   const navigate = useNavigate()
   const handleEditButton = () => navigate(`/task/${loadedId}/edit`)
+  
 
     return (
       <Card viewType="view" id={loadedId}> 
@@ -17,7 +20,7 @@ const TaskCard = ( task ) => {
         <p>{loadedId}</p>
         <p>{task.description}</p>
         <p>Completed:({completeStatus ? `\u2705` : `\u274C` })</p>
-        <p>Due Date: {task.dueDate}</p>
+        <p>Due Date: {formattedDate}</p>
         <p>TODO: Learning Content?</p>
         <Button id={`edit-task-${id}`} label="Edit" handleClick={handleEditButton}/>
         {!completeStatus && <Button id={`complete-task-${id}`} label="Complete" handleClick={() => setCompleteStatus(true)} />}
