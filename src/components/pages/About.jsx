@@ -1,4 +1,5 @@
 import Input from "../common/Input";
+import TextArea from "../common/TextArea";
 import Button from "../common/Button";
 import { useState } from "react";
 import sampleFeedback from "../../sampleData/sampleFeedback";
@@ -69,10 +70,11 @@ const About = () => {
           required="true"
           handleChange={handleChange}
         />
-        <Input
+        <TextArea
           id="feedback"
-          value={inputData.feedback}
           label="Feedback:"
+          value={inputData.feedback}
+          rows="4"
           required="true"
           handleChange={handleChange}
         />

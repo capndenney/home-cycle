@@ -1,8 +1,7 @@
 import TaskCard from "../common/TaskCard.JSX";
-import sampleTasks from "../../sampleData/sampleTasks.js";
 
-const TasksSection = () => {
-  const tasksJSX = [...sampleTasks].map((task) => { //TODO: Each card needs a unique key, which is currently not present?
+const TasksSection = ({taskArray, saveTask}) => {
+  const tasksJSX = [...taskArray].map((task) => {
     return (
         <TaskCard
           key={task.taskId}
@@ -11,6 +10,7 @@ const TasksSection = () => {
           description={task.description}
           dueDate={task.dueDate}
           completed={task.completed}
+          saveTask={saveTask}
         />
     );
   });

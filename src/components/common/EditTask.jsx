@@ -3,28 +3,29 @@ import Input from "./Input";
 import Button from "./Button";
 import { DayPicker } from "react-day-picker";
 import { useState } from "react";
-import sampleTasks from "../../sampleData/sampleTasks";
 import { useParams, useNavigate } from "react-router";
 
-const EditTask = () => {
+const EditTask = ({saveTask, tasks}) => {
   const {id} = useParams()
   const taskNum = Number(id)
-  const loadTask = sampleTasks.find(t => t.taskId === taskNum)
+  const loadTask = tasks.find(t => t.taskId === taskNum)
 
   const newTaskId =
-    sampleTasks.reduce((max, t) => {
+    tasks.reduce((max, t) => {
       return t.taskId > max ? t.taskId : max;
     }, 0) + 1;
 
   const getInitialTaskData = () => {
     if (loadTask) {
 
+      const loadedDate = new Date(loadTask.dueDate)
+
       return {
         title: loadTask.title || "",
         taskId: loadTask.taskId,
         description: loadTask.description || "",
         completed: loadTask.completed || false,
-        dueDate: loadTask.dueDate || null,
+        dueDate: loadedDate || null,
       };
     } else {
       return {
@@ -32,7 +33,7 @@ const EditTask = () => {
         taskId: newTaskId,
         description: "",
         completed: false,
-        dueDate: "",
+        dueDate: null,
       };
     }
   };
@@ -53,19 +54,28 @@ const EditTask = () => {
     setDescData(e.target.value);
   };
 
-  const handleDateChange = (e) => {
-    setDueData(e.target.date);
-  };
-
   const handleCheck = (e) => {
     setCompData(e.target.checked);
   };
 
   const navigate = useNavigate()
+
   const handleSave = (e) => {
     e.preventDefault();
-    //TODO: Save Logic
-    navigate(`/task/${taskNum}`)
+    const dateForSave = (dueData ? dueData.toISOString() : null)
+
+    const editedTask = {
+      taskId: loadedTaskData.taskId,
+      title: titleData,
+      description: descData,
+      dueDate: dateForSave,
+      createdDate: new Date(),
+      completed: compData
+    }
+
+    saveTask(editedTask);
+    setTimeout(() => {
+    navigate(`/task/${loadedTaskData.taskId}`)})
   };
 
   const handleCancel = (e) => {
@@ -99,9 +109,7 @@ const EditTask = () => {
         handleChange={handleCheck}
       />
       <h4>Due Date:</h4>
-      <DayPicker mode="single" selected={dueData} onSelect={setDueData} footer={dueData ? `Due Date: ${dueData}` : `Please Select a Due Date`}>
-        TODO: Load Saved Date
-      </DayPicker>
+      <DayPicker mode="single" selected={dueData} onSelect={setDueData} footer={dueData ? `Due Date: ${dueData.toLocaleDateString()}` : `Please Select a Due Date`} />
       <Button label="Save" handleClick={handleSave}>
         TODO: Save Changes
       </Button>

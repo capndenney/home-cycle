@@ -13,40 +13,64 @@ import LogIn from "./components/pages/LogIn.jsx";
 import sampleTasks from "./sampleData/sampleTasks.js";
 
 function App() {
-
   const [logInStatus, setLogInStatus] = useState(true);
-  const [taskArray, setTaskArray] = useState(sampleTasks) 
+  const [taskArray, setTaskArray] = useState(sampleTasks);
 
-  const updateTask = (updatedTask) => {
-    setTaskArray(curArray => {
-      return curArray.map(task => 
-        task.id === updatedTask.id ? updatedTask : task
-      )
-    })
-  }
+  const saveTask = (updatedTask) => {
+    setTaskArray((curArray) => {
+      const taskIndex = curArray.findIndex(
+        (t) => t.taskId === updatedTask.taskId
+      );
+
+      if (taskIndex !== -1) {
+        const updatedArray = [...curArray];
+        updatedArray[taskIndex] = updatedTask;
+        return updatedArray;
+      } else {
+        return [...curArray, updatedTask];
+      }
+    });
+  };
 
   return (
     <>
       <Router id="main-content">
-      <Header logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>
+        <Header logInStatus={logInStatus} setLogInStatus={setLogInStatus} />
         {logInStatus ? (
           <Routes>
-            <Route path="/" element={<Home tasks={taskArray}/>} />
+            <Route path="/" element={<Home taskArray={taskArray} saveTask={saveTask}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/calendar" element={<CalendarOverview />} />
-            <Route path="/task/:id" element={<ViewTask tasks={taskArray}/>} />
-            <Route path="/task/:id/edit" element={<EditTask tasks={taskArray} updateTask={updateTask}/>} />
-            <Route path="/newtask" element={<EditTask tasks={taskArray} updateTask={updateTask}/>} />
+            <Route path="/task/:id" element={<ViewTask taskArray={taskArray} saveTask={saveTask}/>} />
+            <Route
+              path="/task/:id/edit"
+              element={<EditTask tasks={taskArray} saveTask={saveTask} />}
+            />
+            <Route
+              path="/newtask"
+              element={<EditTask tasks={taskArray} saveTask={saveTask} />}
+            />
             <Route path="*" element={<Home />} />
           </Routes>
         ) : (
           <Routes>
-            <Route path="/" element={<LogIn logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>} />
+            <Route
+              path="/"
+              element={
+                <LogIn
+                  logInStatus={logInStatus}
+                  setLogInStatus={setLogInStatus}
+                />
+              }
+            />
             <Route path="/about" element={<About />} />
-            <Route path="*" element={<LogIn setLogInStatus={setLogInStatus}/>} />
+            <Route
+              path="*"
+              element={<LogIn setLogInStatus={setLogInStatus} />}
+            />
           </Routes>
         )}
-      <Footer />
+        <Footer />
       </Router>
     </>
   );

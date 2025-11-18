@@ -1,35 +1,31 @@
 import TaskCard from "../common/TaskCard.JSX";
 import { useParams } from "react-router";
-import sampleTasks from "../../sampleData/sampleTasks";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const ViewTask = () => {
+const ViewTask = ({taskArray, saveTask}) => {
   const { id } = useParams();
-  const foundTask = sampleTasks.find((t) => t.taskId === Number(id));
+  const localTaskId = Number(id)
+  const [task, setTask] = useState(null);
 
-//TODO: Allow navigation to different tasks from task detail page
-//   const [task, setTask] = useState(null);
-//   useEffect(() => {
-    // setTask(foundTask);
-//   }, [id]);
+  useEffect(() => {
+    const foundTask = taskArray.find((t) => t.taskId === localTaskId);
+    setTask(foundTask);
+  }, [localTaskId, taskArray]);
 
-// const formattedDate = (d) => {
-//   toLocaleDateString(d)
-// }
-
-console.log(foundTask.dueDate)
-console.log(typeof(foundTask.dueDate))
-
+  if(!task) {
+    <div>Attempting to load your task</div>
+  } else {
   return (
     <TaskCard
-      key={foundTask.taskId}
-      id={`task-${foundTask.taskId}`}
-      title={foundTask.title}
-      description={foundTask.description}
-      dueDate={foundTask.dueDate}
-      completed={foundTask.completed}
+      key={task.taskId}
+      taskId={task.taskId}
+      title={task.title}
+      description={task.description}
+      dueDate={task.dueDate}
+      completed={task.completed}
+      saveTask={saveTask}
     />
-  );
+  );}
 };
 
 export default ViewTask;
