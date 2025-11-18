@@ -1,29 +1,38 @@
 import Card from "./Card";
 import Button from "./Button";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 
-const TaskCard = ( task ) => {
+const TaskCard = ({saveTask, taskId, title, description, dueDate, completed}) => {
 
-  const { id } = useParams()
-  const loadedId = (id ? id : task.taskId)
-  const loadedDate = new Date(task.dueDate)
+  const loadedId =  taskId
+  const loadedDate = new Date(dueDate)
   const formattedDate = loadedDate.toLocaleDateString()
-  const [completeStatus,setCompleteStatus] = useState(task.completed)
   const navigate = useNavigate()
   const handleEditButton = () => navigate(`/task/${loadedId}/edit`)
+  const handleComplete = () => {
+    const updatedTask = {
+      taskId: loadedId,
+      title: title,
+      description: description,
+      dueDate: dueDate,
+      completed: true
+    };
+    saveTask(updatedTask);
+  }
   
+console.log(loadedId)
 
     return (
-      <Card viewType="view" id={loadedId}> 
-        <h3>{task.title}</h3>
+      <Card viewType="view" id={loadedId} taskId={loadedId}> 
+        <h3>{title}</h3>
         <p>{loadedId}</p>
-        <p>{task.description}</p>
-        <p>Completed:({completeStatus ? `\u2705` : `\u274C` })</p>
+        <p>{description}</p>
+        <p>Completed:({completed ? `\u2705` : `\u274C` })</p>
         <p>Due Date: {formattedDate}</p>
         <p>TODO: Learning Content?</p>
-        <Button id={`edit-task-${id}`} label="Edit" handleClick={handleEditButton}/>
-        {!completeStatus && <Button id={`complete-task-${id}`} label="Complete" handleClick={() => setCompleteStatus(true)} />}
+        <Button id={`edit-task-${loadedId}`} label="Edit" handleClick={handleEditButton}/>
+        {!completed && <Button id={`complete-task-${loadedId}`} label="Complete" handleClick={handleComplete} />}
       </Card>
     );
 };

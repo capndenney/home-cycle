@@ -38,10 +38,10 @@ function App() {
         <Header logInStatus={logInStatus} setLogInStatus={setLogInStatus} />
         {logInStatus ? (
           <Routes>
-            <Route path="/" element={<Home tasks={taskArray} />} />
+            <Route path="/" element={<Home taskArray={taskArray} saveTask={saveTask}/>} />
             <Route path="/about" element={<About />} />
             <Route path="/calendar" element={<CalendarOverview />} />
-            <Route path="/task/:id" element={<ViewTask tasks={taskArray} />} />
+            <Route path="/task/:id" element={<ViewTask taskArray={taskArray} saveTask={saveTask}/>} />
             <Route
               path="/task/:id/edit"
               element={<EditTask tasks={taskArray} saveTask={saveTask} />}

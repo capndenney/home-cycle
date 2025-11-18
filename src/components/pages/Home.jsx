@@ -1,8 +1,8 @@
 import TasksSection from "../layout/TasksSection"
 
-const Home = () => {
+const Home = ({taskArray, saveTask}) => {
     return (
-        <TasksSection />
+        <TasksSection taskArray={taskArray} saveTask={saveTask}/>
     )
 }
 
