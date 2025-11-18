@@ -5,15 +5,25 @@ import Home from "./components/pages/Home.jsx";
 import About from "./components/pages/About.jsx";
 import ViewTask from "./components/pages/ViewTask.jsx";
 import EditTask from "./components/common/EditTask.jsx";
-import Calendar from "./components/pages/Calendar.jsx";
+import CalendarOverview from "./components/pages/CalendarOverview.jsx";
 import { useState } from "react";
 import "./Index.css";
 import "react-day-picker/style.css";
 import LogIn from "./components/pages/LogIn.jsx";
+import sampleTasks from "./sampleData/sampleTasks.js";
 
 function App() {
 
-  const [logInStatus, setLogInStatus] = useState(true); 
+  const [logInStatus, setLogInStatus] = useState(true);
+  const [taskArray, setTaskArray] = useState(sampleTasks) 
+
+  const updateTask = (updatedTask) => {
+    setTaskArray(curArray => {
+      return curArray.map(task => 
+        task.id === updatedTask.id ? updatedTask : task
+      )
+    })
+  }
 
   return (
     <>
@@ -21,12 +31,12 @@ function App() {
       <Header logInStatus={logInStatus} setLogInStatus={setLogInStatus}/>
         {logInStatus ? (
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home tasks={taskArray}/>} />
             <Route path="/about" element={<About />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/task/:id" element={<ViewTask />} />
-            <Route path="/task/:id/edit" element={<EditTask />} />
-            <Route path="/newtask" element={<EditTask />} />
+            <Route path="/calendar" element={<CalendarOverview />} />
+            <Route path="/task/:id" element={<ViewTask tasks={taskArray}/>} />
+            <Route path="/task/:id/edit" element={<EditTask tasks={taskArray} updateTask={updateTask}/>} />
+            <Route path="/newtask" element={<EditTask tasks={taskArray} updateTask={updateTask}/>} />
             <Route path="*" element={<Home />} />
           </Routes>
         ) : (

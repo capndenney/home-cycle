@@ -6,14 +6,15 @@ import { useNavigate, useParams } from "react-router";
 const TaskCard = ( task ) => {
 
   const { id } = useParams()
+  const loadedId = (id ? id : task.taskId)
   const [completeStatus,setCompleteStatus] = useState(task.completed)
   const navigate = useNavigate()
-  const handleEditButton = () => navigate(`/task/${id}/edit`)
+  const handleEditButton = () => navigate(`/task/${loadedId}/edit`)
 
     return (
-      <Card viewType="view" id={task.taskId}> 
+      <Card viewType="view" id={loadedId}> 
         <h3>{task.title}</h3>
-        <p>{id}</p>
+        <p>{loadedId}</p>
         <p>{task.description}</p>
         <p>Completed:({completeStatus ? `\u2705` : `\u274C` })</p>
         <p>Due Date: {task.dueDate}</p>

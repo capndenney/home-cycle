@@ -13,6 +13,13 @@ const ViewTask = () => {
     // setTask(foundTask);
 //   }, [id]);
 
+// const formattedDate = (d) => {
+//   toLocaleDateString(d)
+// }
+
+console.log(foundTask.dueDate)
+console.log(typeof(foundTask.dueDate))
+
   return (
     <TaskCard
       key={foundTask.taskId}

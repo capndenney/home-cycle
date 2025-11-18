@@ -18,12 +18,13 @@ const EditTask = () => {
 
   const getInitialTaskData = () => {
     if (loadTask) {
+
       return {
         title: loadTask.title || "",
         taskId: loadTask.taskId,
         description: loadTask.description || "",
         completed: loadTask.completed || false,
-        dueDate: loadTask.dueDate || "",
+        dueDate: loadTask.dueDate || null,
       };
     } else {
       return {
@@ -64,7 +65,6 @@ const EditTask = () => {
   const handleSave = (e) => {
     e.preventDefault();
     //TODO: Save Logic
-    //TODO: Link to view task page for that taskId
     navigate(`/task/${taskNum}`)
   };
 
@@ -99,14 +99,13 @@ const EditTask = () => {
         handleChange={handleCheck}
       />
       <h4>Due Date:</h4>
-      <DayPicker mode="single" value={dueData} handleChange={handleDateChange}>
+      <DayPicker mode="single" selected={dueData} onSelect={setDueData} footer={dueData ? `Due Date: ${dueData}` : `Please Select a Due Date`}>
         TODO: Load Saved Date
       </DayPicker>
       <Button label="Save" handleClick={handleSave}>
         TODO: Save Changes
       </Button>
       <Button label="Cancel" handleClick={handleCancel}>
-        TODO: Cancel Changes
       </Button>
     </Card>
   );
