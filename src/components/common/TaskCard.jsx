@@ -35,7 +35,6 @@ const TaskCard = ({
       <p>{description}</p>
       <p>Completed:({completed ? `\u2705` : `\u274C`})</p>
       <p>Due Date: {formattedDate}</p>
-      <p>TODO: Learning Content?</p>
       <Button
         id={`edit-task-${loadedId}`}
         label="Edit"

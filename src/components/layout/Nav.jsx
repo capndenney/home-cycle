@@ -1,9 +1,8 @@
 import { Link } from "react-router";
 import Button from "../common/Button";
 
-//TODO: add user context to links
-
 const Nav = ({ logInStatus, setLogInStatus, setClicked }) => {
+
   const handleLogout = () => {
     setLogInStatus(false);
     setClicked(0);
@@ -11,10 +10,10 @@ const Nav = ({ logInStatus, setLogInStatus, setClicked }) => {
 
   return (
     <div className="nav-menu">
-      <Link className="link new-task" to="/newtask">
+      <Link className="link new-task" to="/newtask" >
         New Task
       </Link>
-      <Link className="link" to="/">
+      <Link className="link" to="/" >
         Home
       </Link>
       <Link className="link" to="/calendar">

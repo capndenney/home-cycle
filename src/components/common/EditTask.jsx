@@ -7,13 +7,14 @@ import { useParams, useNavigate } from "react-router";
 
 const EditTask = ({ saveTask, tasks }) => {
   const { id } = useParams();
-  const taskNum = Number(id);
-  const loadTask = tasks.find((t) => t.taskId === taskNum);
 
   const newTaskId =
     tasks.reduce((max, t) => {
       return t.taskId > max ? t.taskId : max;
     }, 0) + 1;
+
+  const taskNum = id ? Number(id) : newTaskId;
+  const loadTask = tasks.find((t) => t.taskId === taskNum);
 
   const getInitialTaskData = () => {
     if (loadTask) {
@@ -21,7 +22,7 @@ const EditTask = ({ saveTask, tasks }) => {
 
       return {
         title: loadTask.title || "",
-        taskId: loadTask.taskId,
+        taskId: loadTask.taskId || newTaskId,
         description: loadTask.description || "",
         completed: loadTask.completed || false,
         dueDate: loadedDate || null,
@@ -119,10 +120,8 @@ const EditTask = ({ saveTask, tasks }) => {
             : `Please Select a Due Date`
         }
       />
-      <Button label="Save" handleClick={handleSave}>
-        TODO: Save Changes
-      </Button>
-      <Button label="Cancel" handleClick={handleCancel}></Button>
+      <Button label="Save" handleClick={handleSave}/>
+      <Button label="Cancel" handleClick={handleCancel}/>
     </Card>
   );
 };

@@ -16,6 +16,7 @@ const Header = ({ logInStatus, setLogInStatus, setClicked }) => {
         logInStatus={logInStatus}
         setLogInStatus={setLogInStatus}
         setClicked={setClicked}
+
       />
     </header>
   );

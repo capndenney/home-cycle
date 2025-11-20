@@ -13,7 +13,7 @@ import LogIn from "./components/pages/LogIn.jsx";
 import sampleTasks from "./sampleData/sampleTasks.js";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(false);
+  const [logInStatus, setLogInStatus] = useState(true); //TODO: toggle to false
   const [taskArray, setTaskArray] = useState(sampleTasks);
   const [clicked, setClicked] = useState(0);
 
@@ -56,11 +56,11 @@ function App() {
             />
             <Route
               path="/task/:id/edit"
-              element={<EditTask tasks={taskArray} saveTask={saveTask} />}
+              element={<EditTask tasks={taskArray} saveTask={saveTask} key="edit-task"/>}
             />
             <Route
               path="/newtask"
-              element={<EditTask tasks={taskArray} saveTask={saveTask} />}
+              element={<EditTask tasks={taskArray} saveTask={saveTask} key="new-task"/>}
             />
             <Route path="*" element={<Home />} />
           </Routes>
