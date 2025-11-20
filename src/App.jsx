@@ -5,7 +5,6 @@ import Home from "./components/pages/Home.jsx";
 import About from "./components/pages/About.jsx";
 import ViewTask from "./components/pages/ViewTask.jsx";
 import EditTask from "./components/common/EditTask.jsx";
-import CalendarOverview from "./components/pages/CalendarOverview.jsx";
 import { useState } from "react";
 import "./Index.css";
 import "react-day-picker/style.css";
@@ -49,7 +48,6 @@ function App() {
               element={<Home taskArray={taskArray} saveTask={saveTask} />}
             />
             <Route path="/about" element={<About />} />
-            <Route path="/calendar" element={<CalendarOverview />} />
             <Route
               path="/task/:id"
               element={<ViewTask taskArray={taskArray} saveTask={saveTask} />}
