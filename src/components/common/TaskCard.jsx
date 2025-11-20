@@ -18,7 +18,7 @@ const TaskCard = ({
   const handleComplete = () => {
     const updatedTask = {
       taskId: loadedId,
-      title: title,
+      title: title ,
       description: description,
       dueDate: dueDate,
       completed: true,
@@ -29,7 +29,7 @@ const TaskCard = ({
   return (
     <Card viewType="view" id={loadedId} taskId={loadedId}>
       <h3>{title}</h3>
-      <p>{loadedId}</p>
+      <p>Task ID: {loadedId}</p>
       <p>{description}</p>
       <p>Completed:({completed ? `\u2705` : `\u274C`})</p>
       <p>Due Date: {formattedDate}</p>

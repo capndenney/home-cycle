@@ -16,9 +16,6 @@ const Nav = ({ logInStatus, setLogInStatus, setClicked }) => {
       <Link className="link" to="/" >
         Home
       </Link>
-      <Link className="link" to="/calendar">
-        Calendar
-      </Link>
       <Link className="link" to="/about">
         About
       </Link>
