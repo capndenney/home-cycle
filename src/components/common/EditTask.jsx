@@ -5,10 +5,10 @@ import { DayPicker } from "react-day-picker";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router";
 
-const EditTask = ({saveTask, tasks}) => {
-  const {id} = useParams()
-  const taskNum = Number(id)
-  const loadTask = tasks.find(t => t.taskId === taskNum)
+const EditTask = ({ saveTask, tasks }) => {
+  const { id } = useParams();
+  const taskNum = Number(id);
+  const loadTask = tasks.find((t) => t.taskId === taskNum);
 
   const newTaskId =
     tasks.reduce((max, t) => {
@@ -17,8 +17,7 @@ const EditTask = ({saveTask, tasks}) => {
 
   const getInitialTaskData = () => {
     if (loadTask) {
-
-      const loadedDate = new Date(loadTask.dueDate)
+      const loadedDate = new Date(loadTask.dueDate);
 
       return {
         title: loadTask.title || "",
@@ -38,7 +37,7 @@ const EditTask = ({saveTask, tasks}) => {
     }
   };
 
-  const initialTaskData = getInitialTaskData()
+  const initialTaskData = getInitialTaskData();
 
   const [loadedTaskData] = useState(initialTaskData);
   const [descData, setDescData] = useState(initialTaskData.description);
@@ -58,11 +57,11 @@ const EditTask = ({saveTask, tasks}) => {
     setCompData(e.target.checked);
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSave = (e) => {
     e.preventDefault();
-    const dateForSave = (dueData ? dueData.toISOString() : null)
+    const dateForSave = dueData ? dueData.toISOString() : null;
 
     const editedTask = {
       taskId: loadedTaskData.taskId,
@@ -70,12 +69,13 @@ const EditTask = ({saveTask, tasks}) => {
       description: descData,
       dueDate: dateForSave,
       createdDate: new Date(),
-      completed: compData
-    }
+      completed: compData,
+    };
 
     saveTask(editedTask);
     setTimeout(() => {
-    navigate(`/task/${loadedTaskData.taskId}`)})
+      navigate(`/task/${loadedTaskData.taskId}`);
+    });
   };
 
   const handleCancel = (e) => {
@@ -109,12 +109,20 @@ const EditTask = ({saveTask, tasks}) => {
         handleChange={handleCheck}
       />
       <h4>Due Date:</h4>
-      <DayPicker mode="single" selected={dueData} onSelect={setDueData} footer={dueData ? `Due Date: ${dueData.toLocaleDateString()}` : `Please Select a Due Date`} />
+      <DayPicker
+        mode="single"
+        selected={dueData}
+        onSelect={setDueData}
+        footer={
+          dueData
+            ? `Due Date: ${dueData.toLocaleDateString()}`
+            : `Please Select a Due Date`
+        }
+      />
       <Button label="Save" handleClick={handleSave}>
         TODO: Save Changes
       </Button>
-      <Button label="Cancel" handleClick={handleCancel}>
-      </Button>
+      <Button label="Cancel" handleClick={handleCancel}></Button>
     </Card>
   );
 };

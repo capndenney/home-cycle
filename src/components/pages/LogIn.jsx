@@ -3,10 +3,9 @@ import Input from "../common/Input";
 import { useState } from "react";
 import sampleUsers from "../../sampleData/sampleUsers";
 
-const LogIn = ({ setLogInStatus }) => {
+const LogIn = ({ setLogInStatus, clicked, setClicked }) => {
   const credentialFormat = { username: "", password: "" };
   const [creds, setCreds] = useState(credentialFormat);
-  const [clicked, setClicked] = useState(0)
 
   function validateLogin(inputUsername, inputPassword) {
     return sampleUsers.some((credentials) => {
@@ -23,19 +22,18 @@ const LogIn = ({ setLogInStatus }) => {
   };
 
   const handleClick = (e) => {
-    setClicked(clicked => clicked + 1)
     e.preventDefault();
     if (validateLogin(creds.username, creds.password)) {
       setLogInStatus(true);
     } else {
-      console.log("invalid credentials"); //TODO: Add element insertion for wrong password
+      setClicked((clicked) => clicked + 1);
     }
   };
 
   return (
     <div className="log-in card add-blur">
       <h2>Log In</h2>
-      {clicked>0 && <h4 className="invalid">Invalid Credentials!</h4>}
+      {clicked > 0 && <h4 className="invalid">Invalid Credentials!</h4>}
 
       <Input
         label="Username:"
@@ -50,11 +48,7 @@ const LogIn = ({ setLogInStatus }) => {
         id="password"
         handleChange={handleChange}
       />
-      <Button
-        label="Log In"
-        id="log-in-button"
-        handleClick={handleClick}
-      />
+      <Button label="Log In" id="log-in-button" handleClick={handleClick} />
     </div>
   );
 };
