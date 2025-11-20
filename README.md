@@ -1,13 +1,9 @@
 # Dev Notes
 
 ## Libraries to review for Date selection
+
 react-datepicker
 react-day-picker
-
-
-
-
-
 
 # React + Vite
 

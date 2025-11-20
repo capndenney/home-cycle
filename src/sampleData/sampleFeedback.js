@@ -1,3 +1,3 @@
-const sampleFeedback = []
+const sampleFeedback = [];
 
-export default sampleFeedback
+export default sampleFeedback;

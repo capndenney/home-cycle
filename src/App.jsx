@@ -13,13 +13,14 @@ import LogIn from "./components/pages/LogIn.jsx";
 import sampleTasks from "./sampleData/sampleTasks.js";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(true);
+  const [logInStatus, setLogInStatus] = useState(false); 
   const [taskArray, setTaskArray] = useState(sampleTasks);
+  const [clicked, setClicked] = useState(0);
 
   const saveTask = (updatedTask) => {
     setTaskArray((curArray) => {
       const taskIndex = curArray.findIndex(
-        (t) => t.taskId === updatedTask.taskId
+        (t) => t.taskId === updatedTask.taskId,
       );
 
       if (taskIndex !== -1) {
@@ -35,20 +36,31 @@ function App() {
   return (
     <>
       <Router id="main-content">
-        <Header logInStatus={logInStatus} setLogInStatus={setLogInStatus} />
+        <Header
+          logInStatus={logInStatus}
+          setLogInStatus={setLogInStatus}
+          setClicked={setClicked}
+          clicked={clicked}
+        />
         {logInStatus ? (
           <Routes>
-            <Route path="/" element={<Home taskArray={taskArray} saveTask={saveTask}/>} />
+            <Route
+              path="/"
+              element={<Home taskArray={taskArray} saveTask={saveTask} />}
+            />
             <Route path="/about" element={<About />} />
             <Route path="/calendar" element={<CalendarOverview />} />
-            <Route path="/task/:id" element={<ViewTask taskArray={taskArray} saveTask={saveTask}/>} />
+            <Route
+              path="/task/:id"
+              element={<ViewTask taskArray={taskArray} saveTask={saveTask} />}
+            />
             <Route
               path="/task/:id/edit"
-              element={<EditTask tasks={taskArray} saveTask={saveTask} />}
+              element={<EditTask tasks={taskArray} saveTask={saveTask} key="edit-task"/>}
             />
             <Route
               path="/newtask"
-              element={<EditTask tasks={taskArray} saveTask={saveTask} />}
+              element={<EditTask tasks={taskArray} saveTask={saveTask} key="new-task"/>}
             />
             <Route path="*" element={<Home />} />
           </Routes>
@@ -60,6 +72,8 @@ function App() {
                 <LogIn
                   logInStatus={logInStatus}
                   setLogInStatus={setLogInStatus}
+                  clicked={clicked}
+                  setClicked={setClicked}
                 />
               }
             />
