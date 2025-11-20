@@ -90,7 +90,7 @@ const EditTask = ({ saveTask, tasks }) => {
   return (
     <Card viewType="edit add-blur">
       <h3>{titleData}</h3>
-      <p>{loadedTaskData.taskId}</p>
+      <p>Task ID: {loadedTaskData.taskId}</p>
       <Input
         label="Title"
         id={`input-title-${loadedTaskData.taskId}`}

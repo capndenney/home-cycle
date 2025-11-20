@@ -13,7 +13,7 @@ import LogIn from "./components/pages/LogIn.jsx";
 import sampleTasks from "./sampleData/sampleTasks.js";
 
 function App() {
-  const [logInStatus, setLogInStatus] = useState(true); //TODO: toggle to false
+  const [logInStatus, setLogInStatus] = useState(false); 
   const [taskArray, setTaskArray] = useState(sampleTasks);
   const [clicked, setClicked] = useState(0);
 

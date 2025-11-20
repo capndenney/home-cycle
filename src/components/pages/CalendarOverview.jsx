@@ -2,9 +2,9 @@ import { DayPicker } from "react-day-picker";
 
 const CalendarOverview = () => {
   return (
-    <DayPicker>TODO: Load Calendar with tasks</DayPicker>
+    <DayPicker>TODO: Load Calendar with markers on days with tasks</DayPicker>
 
-    // TODO: Do we want to load next 'x' upcoming tasks?
+    // TODO: Load tasks for current month as cards below
   );
 };
 

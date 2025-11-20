@@ -6,8 +6,8 @@ const Footer = () => {
 
   return (
     <footer>
-      <h6>Thanks for visiting, &copy; {year} Home Cycle </h6>
       <Nav />
+      <h6>Thanks for visiting, &copy; {year} Home Cycle </h6>
     </footer>
   );
 };

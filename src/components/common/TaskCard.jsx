@@ -26,8 +26,6 @@ const TaskCard = ({
     saveTask(updatedTask);
   };
 
-  console.log(loadedId);
-
   return (
     <Card viewType="view" id={loadedId} taskId={loadedId}>
       <h3>{title}</h3>

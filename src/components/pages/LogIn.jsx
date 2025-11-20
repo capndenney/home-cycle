@@ -31,25 +31,28 @@ const LogIn = ({ setLogInStatus, clicked, setClicked }) => {
   };
 
   return (
-    <div className="log-in card add-blur">
-      <h2>Log In</h2>
-      {clicked > 0 && <h4 className="invalid">Invalid Credentials!</h4>}
+    <>
+      <div className="log-in card add-blur">
+        <h2>Log In</h2>
+        {clicked > 0 && <h4 className="invalid">Invalid Credentials!</h4>}
 
-      <Input
-        label="Username:"
-        value={creds.username}
-        id="username"
-        handleChange={handleChange}
-      />
-      <Input
-        label="Password:"
-        value={creds.password}
-        type="password"
-        id="password"
-        handleChange={handleChange}
-      />
-      <Button label="Log In" id="log-in-button" handleClick={handleClick} />
-    </div>
+        <Input
+          label="Username:"
+          value={creds.username}
+          id="username"
+          handleChange={handleChange}
+        />
+        <Input
+          label="Password:"
+          value={creds.password}
+          type="password"
+          id="password"
+          handleChange={handleChange}
+        />
+        <Button label="Log In" id="log-in-button" handleClick={handleClick} />
+      </div>
+      <p className="about intro card">Home Cycle is the solution to recurring maintenance around the home. As a homeowner, I have lots of small things I have to do every day, week, month and year it seems.  I built this to help me stay organized, and hopefully it does the same for others.</p>
+    </>
   );
 };
 
