@@ -1,5 +1,5 @@
 import Card from "./Card";
-import Input from "./Input";
+import Input from "./forms/Input";
 import Button from "./Button";
 import { DayPicker } from "react-day-picker";
 import { useState } from "react";

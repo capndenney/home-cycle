@@ -1,5 +1,5 @@
-import Input from "../common/Input";
-import TextArea from "../common/TextArea";
+import Input from "../common/forms/Input";
+import TextArea from "../common/forms/TextArea";
 import Button from "../common/Button";
 import { useState } from "react";
 import sampleFeedback from "../../sampleData/sampleFeedback";

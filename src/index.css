@@ -27,6 +27,11 @@ header {
   align-items: center;
 }
 
+#intro {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
 .link {
   margin: 5px;
   font-family: "Gill Sans MT", sans-serif;
@@ -118,6 +123,20 @@ main {
 #logo {
   max-height: 70px;
   padding: 10px;
+}
+
+#logo:hover {
+  animation-name: rotate;
+  animation-duration: 1s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #dashboard-heading {

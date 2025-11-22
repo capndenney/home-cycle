@@ -1,5 +1,5 @@
 import Button from "../common/Button";
-import Input from "../common/Input";
+import Input from "../common/forms/Input";
 import { useState } from "react";
 import sampleUsers from "../../sampleData/sampleUsers";
 
@@ -51,7 +51,7 @@ const LogIn = ({ setLogInStatus, clicked, setClicked }) => {
         />
         <Button label="Log In" id="log-in-button" handleClick={handleClick} />
       </div>
-      <p className="about intro card">Home Cycle is the solution to recurring maintenance around the home. As a homeowner, I have lots of small things I have to do every day, week, month and year it seems.  I built this to help me stay organized, and hopefully it does the same for others.</p>
+      <p className="about intro card" id="intro">Home Cycle is the solution to recurring maintenance around the home. As a homeowner, I have lots of small things I have to do every day, week, month and year it seems.  I built this to help me stay organized, and hopefully it does the same for others.</p>
     </>
   );
 };
