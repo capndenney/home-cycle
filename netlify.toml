@@ -1,4 +1,4 @@
 [build]
-    base = "src"
+    base = "home-cycle"
     command = "npm run build"
     publish = "dist"
