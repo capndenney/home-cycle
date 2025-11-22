@@ -1,4 +1,3 @@
 [build]
-    base = "home-cycle"
     command = "npm run build"
     publish = "dist"
